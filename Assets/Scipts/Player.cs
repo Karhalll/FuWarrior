@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpSpeed = 5f;
+    [SerializeField] float timeInPreparedState = 3f;
+
+    float timeSinceLastAttack;
 
     Rigidbody2D myRigidBody;
     Animator myAnimator;
@@ -14,6 +18,7 @@ public class Player : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        timeSinceLastAttack = Mathf.Infinity;
     }
 
     // Update is called once per frame
@@ -21,7 +26,16 @@ public class Player : MonoBehaviour
     {
         Run();
         Jump();
+        Attack();
+        Kick();
         FlipSprite();
+
+        TimeUpdaters();
+
+        if (timeSinceLastAttack > timeInPreparedState)
+        {
+            myAnimator.SetBool("Prepared", false);
+        }
     }
 
     private void Run()
@@ -45,6 +59,24 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Attack()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
+        {
+            myAnimator.SetTrigger("Attack");
+            timeSinceLastAttack = 0;
+            myAnimator.SetBool("Prepared", true);
+        }
+    }
+
+    private void Kick()
+    {
+        if (CrossPlatformInputManager.GetButtonDown("Fire2"))
+        {
+            print(gameObject.name + " is kicking");
+        }
+    }
+
     private void FlipSprite()
     {
         bool playerHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
@@ -52,5 +84,15 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
         }
+    }
+
+    private void TimeUpdaters()
+    {
+        timeSinceLastAttack += Time.deltaTime;
+    }
+
+    public void Hit()
+    {
+        print("Plesk");
     }
 }
