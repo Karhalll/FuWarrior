@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
@@ -22,27 +21,7 @@ public class Player : MonoBehaviour
     {
         Run();
         Jump();
-        HandleAttack();
-        HandleKick();
         FlipSprite();
-    }
-
-    private void HandleKick()
-    {
-        if (CrossPlatformInputManager.GetButtonDown("Fire2"))
-        {
-            print(gameObject.name + " is kicking!");
-            //TODO handle animation depending on wich weapon is player holding
-        }
-    }
-
-    private void HandleAttack()
-    {
-        if (CrossPlatformInputManager.GetButtonDown("Fire1"))
-        {
-            print(gameObject.name + " is fireing!!!");
-            //TODO all kind of attack (melee, sword, throwable, shootable etc....)
-        }
     }
 
     private void Run()
