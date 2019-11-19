@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 50
   jumpSpeed: 150
+  timeInPreparedState: 3
 --- !u!1001 &1863694021875313755
 PrefabInstance:
   m_ObjectHideFlags: 0
