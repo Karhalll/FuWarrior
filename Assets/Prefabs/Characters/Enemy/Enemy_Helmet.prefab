@@ -211,11 +211,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7517481908658017983, guid: b6a037badcfaea144a1276d6daf5f184,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy_Helmet
-      objectReference: {fileID: 0}
     - target: {fileID: 6021496488977602847, guid: b6a037badcfaea144a1276d6daf5f184,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -270,6 +265,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379301251338365121, guid: b6a037badcfaea144a1276d6daf5f184,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1014504341
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379301251338365121, guid: b6a037badcfaea144a1276d6daf5f184,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7517481908658017983, guid: b6a037badcfaea144a1276d6daf5f184,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_Helmet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6a037badcfaea144a1276d6daf5f184, type: 3}
