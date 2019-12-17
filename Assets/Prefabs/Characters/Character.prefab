@@ -56,7 +56,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.049916163, w: 0.9987534}
   m_LocalPosition: {x: 1.4930036, y: 0.0020296094, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 5940905150909127623}
   m_Father: {fileID: 8974734347627043422}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -287,6 +288,7 @@ GameObject:
   - component: {fileID: 6545672403813272901}
   - component: {fileID: 5544055212107942253}
   - component: {fileID: 7084469996148403604}
+  - component: {fileID: 8509728570534812475}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -366,6 +368,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &8509728570534812475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3919884375189718228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2156448e206aed409875f3efe5cbbd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponConfig: {fileID: 0}
+  weaponSlot: {fileID: 0}
 --- !u!1 &4806245494524811878
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,6 +411,36 @@ Transform:
   m_Children:
   - {fileID: 2768608022069519230}
   m_Father: {fileID: 8232047066478097687}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5116416824405327379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5940905150909127623}
+  m_Layer: 0
+  m_Name: Weapon Slot L Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5940905150909127623
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5116416824405327379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.08, y: 0.23, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7906216155568139831}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5721378318516016243
@@ -528,8 +574,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1014504341
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bb067ddf62ac4eb48a0932d0db4b2a49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
