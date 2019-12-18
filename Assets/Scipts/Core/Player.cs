@@ -2,7 +2,9 @@
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace FuWarror.Core
+using FuWarrior.Combat;
+
+namespace FuWarrior.Core
 {
     public class Player : MonoBehaviour
     {
@@ -72,7 +74,6 @@ namespace FuWarror.Core
             else
             {
                 myAnimator.SetBool("isAttacking", false);
-                timeSinceLastAttack = 0;
                 myAnimator.SetBool("Prepared", true);
             }
         }

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Helmet
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 1014504341
+    locked: 0
+  - name: Blood
+    uniqueID: 422370979
     locked: 0

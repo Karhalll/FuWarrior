@@ -14,7 +14,7 @@ namespace FuWarrior.Combat
         [SerializeField] float blastTimeDuration = 2f;
         
         [Header("Weapon Properities")]
-        [SerializeField] float weaponDamage = 0f;
+        [SerializeField] float weaponDamage = 100f;
         [SerializeField] float attackSpeed = 1f;
 
 
@@ -42,10 +42,12 @@ namespace FuWarrior.Combat
             return null;
         }
 
-        public void LaunchProjectile(Transform spawnPoint)
+        public void LaunchProjectile(Transform spawnPoint, Vector2 target)
         {
             Projectile projectileInstance = Instantiate(projectilePrfab, spawnPoint.position, spawnPoint.rotation);
-
+            projectileInstance.SetTarget(target);
+            projectileInstance.IncreaseDamage(weaponDamage);
+            
             if (blastPrefab != null)
             {
                 GameObject blast = Instantiate(blastPrefab, spawnPoint.position, spawnPoint.rotation);
