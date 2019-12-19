@@ -43,7 +43,7 @@ namespace FuWarrior.Combat
         //Unity animation events
         public void Fire()
         {
-            weaponConfig.LaunchProjectile(currentWeapon.GetProjectileSpawnPoint(), playerController.MousePositionInWorldSpace());
+            weaponConfig.LaunchProjectile(currentWeapon.GetProjectileSpawnPoint(), playerController.MousePositionInWorldSpace(), gameObject.tag);
         }
 
         private void EquipWeapon()

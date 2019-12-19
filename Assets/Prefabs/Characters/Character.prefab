@@ -366,8 +366,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2156448e206aed409875f3efe5cbbd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponConfig: {fileID: 0}
-  weaponSlot: {fileID: 0}
+  weaponConfig: {fileID: 11400000, guid: 153c6abf9f873d544ba3fbf32fb9aef7, type: 2}
+  weaponSlot: {fileID: 5940905150909127623}
   leftArm: {fileID: 7626341372619339212}
   rightArm: {fileID: 6143119226142462283}
 --- !u!114 &4866243877687813392
@@ -706,6 +706,36 @@ Transform:
   m_Father: {fileID: 4299630202268173627}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7428830314817917318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6512494960654891162}
+  m_Layer: 0
+  m_Name: Head Slot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6512494960654891162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7428830314817917318}
+  m_LocalRotation: {x: -0, y: -0, z: -0.56908494, w: 0.8222788}
+  m_LocalPosition: {x: 3.09, y: 0.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4545281107221720218}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -69.373}
 --- !u!1 &7453609490113266336
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,7 +763,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: -0.0057594604, w: 0.9999835}
   m_LocalPosition: {x: 2.9998522, y: 0.034583807, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6512494960654891162}
   m_Father: {fileID: 4213129417775392607}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

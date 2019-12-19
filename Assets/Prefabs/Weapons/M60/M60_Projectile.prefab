@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 4744538645128298499}
   - component: {fileID: 2116613835647973372}
   - component: {fileID: 8423584853912168092}
+  - component: {fileID: 5214656764348314063}
   m_Layer: 0
   m_Name: M60_Projectile
   m_TagString: Untagged
@@ -263,6 +264,8 @@ MonoBehaviour:
   speed: 100
   lifeTime: 5
   StackChanceInPercents: 70
+  blowOfVelocity: 30
+  torqueForce: 30
 --- !u!70 &8423584853912168092
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -279,3 +282,24 @@ CapsuleCollider2D:
   m_Offset: {x: 0.41999668, y: 0.03}
   m_Size: {x: 0.5076373, y: 0.15200047}
   m_Direction: 1
+--- !u!50 &5214656764348314063
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341470633493230294}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

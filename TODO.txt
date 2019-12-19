@@ -1,0 +1,22 @@
+BUGY
+Hoří:
+
+
+Víme, ale zatím neřešíme:
+-Animace
+-Otáčení zbraně za cílem
+-Kolize kulek s okolím
+-Vniknutí kulky do cíle (nedostatečný výpočet na straně Unity)
+
+TODO
+-nábojince při střelbě
+-umírání
+	*animace
+	*vypnout ovládání
+	*vytvořit stavy (dead, runing, jumping, etc.)
+-enviroment
+-zvětšit arzenál zbraní
+-umírání
+-staty
+-UI
+

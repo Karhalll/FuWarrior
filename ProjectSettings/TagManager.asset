@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Helmet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,9 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 1014504341
+    locked: 0
+  - name: Gear
+    uniqueID: 2985250445
     locked: 0
   - name: Blood
     uniqueID: 422370979

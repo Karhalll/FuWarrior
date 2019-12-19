@@ -42,9 +42,10 @@ namespace FuWarrior.Combat
             return null;
         }
 
-        public void LaunchProjectile(Transform spawnPoint, Vector2 target)
+        public void LaunchProjectile(Transform spawnPoint, Vector2 target, string tag)
         {
             Projectile projectileInstance = Instantiate(projectilePrfab, spawnPoint.position, spawnPoint.rotation);
+            projectileInstance.SetMyOwner(tag);
             projectileInstance.SetTarget(target);
             projectileInstance.IncreaseDamage(weaponDamage);
             

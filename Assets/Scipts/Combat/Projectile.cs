@@ -16,10 +16,17 @@ namespace FuWarrior.Combat
         [SerializeField] float StackChanceInPercents = 30f;
 
         float finalDamage = 0f;
-
         bool isStuck = false;
+        string myOwner = null;
+        Vector2 bulet;
 
         Vector2 target;
+        Rigidbody2D myRigidBody = null;
+
+        private void Awake() 
+        {
+            myRigidBody = GetComponent<Rigidbody2D>();
+        }
 
         private void Start() 
         {
@@ -35,46 +42,49 @@ namespace FuWarrior.Combat
 
         private void OnTriggerEnter2D(Collider2D other) 
         {
-            if(other.name == "Head")
+            if (!other.gameObject.GetComponentInParent<Fighter>()) {return;}
+            if (myOwner != other.gameObject.GetComponentInParent<Fighter>().tag)
             {
-                if (other.gameObject.transform.Find("Head Slot").Find("Naci_Helmet"))
+                if (other.GetComponent<BlowOffable>())
                 {
-                    Transform helm = other.gameObject.transform.Find("Head Slot").Find("Naci_Helmet");
-                    GameObject helmDynamics = Instantiate(helm.gameObject, helm.position, helm.rotation);
+                    BlowOffable blowOffable = other.GetComponent<BlowOffable>();
 
-                    Destroy(helm.gameObject);
-                    
-                    helmDynamics.GetComponent<Rigidbody2D>().isKinematic = false;
-                    helmDynamics.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.position * 200f);
+                    Vector3 bulletDirection = gameObject.transform.rotation * new Vector3(1,1,1);
+                    blowOffable.BlowOff(bulletDirection);
+                }
+                else
+                {
+                    GameObject bloodIn = Instantiate(bloodInPrefab, gameObject.transform.position, gameObject.transform.rotation);
+                    Destroy(bloodIn, bloosEffectStickTime);
                 }
 
-                other.GetComponentInParent<Health>().GetDamage(finalDamage);
-            }
+                Health health = other.GetComponent<Health>();
+                if (health)
+                {
+                    health.GetDamage(finalDamage);
+                }
 
-            GameObject bloodIn = Instantiate(bloodInPrefab, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(bloodIn, bloosEffectStickTime);
-
-            Health health = other.GetComponent<Health>();
-            if (health)
-            {
-                health.GetDamage(finalDamage);
-            }
-
-            float rollADice = UnityEngine.Random.Range(0f, 100f);
-            if (rollADice <= StackChanceInPercents)
-            {
-                isStuck = true;
-                Destroy(gameObject);
+                float rollADice = UnityEngine.Random.Range(0f, 100f);
+                if (rollADice <= StackChanceInPercents)
+                {
+                    isStuck = true;
+                    Destroy(gameObject);
+                }
             }
         }
 
         private void OnTriggerExit2D(Collider2D other) 
         {
-            if (!isStuck)
+            if (!other.gameObject.GetComponentInParent<Fighter>()) {return;}
+            if (myOwner != other.gameObject.GetComponentInParent<Fighter>().tag)
             {
-                GameObject bloodOut = Instantiate(bloodOutPrefab, gameObject.transform.position, gameObject.transform.rotation);
-                Destroy(bloodOut, bloosEffectStickTime);
+                if (!isStuck)
+                {
+                    GameObject bloodOut = Instantiate(bloodOutPrefab, gameObject.transform.position, gameObject.transform.rotation);
+                    Destroy(bloodOut, bloosEffectStickTime);
+                }
             }
+        
         }
 
         public void SetTarget(Vector2 target)
@@ -85,6 +95,11 @@ namespace FuWarrior.Combat
         public void IncreaseDamage(float damage)
         {
             finalDamage += damage;
+        }
+
+        public void SetMyOwner(string tag)
+        {
+            myOwner = tag;
         }
     }
 }
