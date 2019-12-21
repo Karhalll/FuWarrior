@@ -17,6 +17,8 @@ MonoBehaviour:
   animationOverride: {fileID: 22100000, guid: 0ff68254e3db5804d9a8d2a2bf07c61d, type: 2}
   projectilePrfab: {fileID: 2116613835647973372, guid: 36d257d86464f6941b98984fd5e6bbe5,
     type: 3}
+  bulletShellPrefab: {fileID: 1832608877087309199, guid: 4529e6a94463f8445aef464f638021be,
+    type: 3}
   blastPrefab: {fileID: 8469253209703925575, guid: 421a152af1b21804abe5ac9a3c7f276d,
     type: 3}
   blastTimeDuration: 0.03

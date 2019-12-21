@@ -15,11 +15,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Bullet
+  - BulletShell
+  - Enviroment
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: Blood
     uniqueID: 422370979
+    locked: 0
+  - name: BulletShells
+    uniqueID: 3877113863
     locked: 0

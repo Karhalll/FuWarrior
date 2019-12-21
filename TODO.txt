@@ -9,14 +9,18 @@ Víme, ale zatím neřešíme:
 -Vniknutí kulky do cíle (nedostatečný výpočet na straně Unity)
 
 TODO
--nábojince při střelbě
 -umírání
-	*animace
 	*vypnout ovládání
 	*vytvořit stavy (dead, runing, jumping, etc.)
+-custom cursor
+-menu
+	*SceneManager
+	*MoreLevel
+	*CourutineOnLoad -> načítací obrazovka před levelem
+-game load screen	
 -enviroment
+-pickups (weapons)
 -zvětšit arzenál zbraní
--umírání
 -staty
 -UI
 

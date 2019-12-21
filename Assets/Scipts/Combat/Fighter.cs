@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 using FuWarrior.Control;
@@ -11,15 +10,19 @@ namespace FuWarrior.Combat
     {
         [SerializeField] WeaponConfig weaponConfig = null;
         [SerializeField] Transform weaponSlot = null;
-
         [SerializeField] Transform leftArm = null;
         [SerializeField] Transform rightArm = null;
 
         Weapon currentWeapon = null;
         PlayerController playerController = null;
+        Health myHealth = null;
+        Animator myAnimator = null;
 
         private void Awake() 
         {
+            myAnimator = GetComponent<Animator>();
+            myHealth = GetComponent<Health>();
+
             if (this.gameObject.tag == "Player")
             {
                  playerController = GetComponent<PlayerController>();
@@ -33,6 +36,11 @@ namespace FuWarrior.Combat
 
         private void Update() 
         {
+            if (myHealth.GetIsDead())
+            {   
+                return;
+            }
+
             if (gameObject.tag == "Player")
             {
                 currentWeapon.transform.LookAt(playerController.MousePositionInWorldSpace());
@@ -44,6 +52,7 @@ namespace FuWarrior.Combat
         public void Fire()
         {
             weaponConfig.LaunchProjectile(currentWeapon.GetProjectileSpawnPoint(), playerController.MousePositionInWorldSpace(), gameObject.tag);
+            weaponConfig.ReleaseBulletShell(currentWeapon.GetShellSpawnPoint());
         }
 
         private void EquipWeapon()

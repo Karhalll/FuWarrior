@@ -58,7 +58,7 @@ namespace FuWarrior.Combat
                     Destroy(bloodIn, bloosEffectStickTime);
                 }
 
-                Health health = other.GetComponent<Health>();
+                Health health = other.GetComponentInParent<Health>();
                 if (health)
                 {
                     health.GetDamage(finalDamage);

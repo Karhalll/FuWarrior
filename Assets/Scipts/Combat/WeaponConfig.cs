@@ -10,6 +10,7 @@ namespace FuWarrior.Combat
         [SerializeField] Weapon weaponPrefab = null;
         [SerializeField] AnimatorOverrideController animationOverride = null;
         [SerializeField] Projectile projectilePrfab = null;
+        [SerializeField] BulletShell bulletShellPrefab = null;
         [SerializeField] GameObject blastPrefab = null;
         [SerializeField] float blastTimeDuration = 2f;
         
@@ -32,6 +33,7 @@ namespace FuWarrior.Combat
             
             if (weaponPrefab != null)
             {
+            
                return Instantiate(weaponPrefab, spawnPosition);
             }
             else 
@@ -53,6 +55,14 @@ namespace FuWarrior.Combat
             {
                 GameObject blast = Instantiate(blastPrefab, spawnPoint.position, spawnPoint.rotation);
                 Destroy(blast, blastTimeDuration);
+            }
+        }
+
+        public void ReleaseBulletShell(Transform shellSpawnPoint)
+        {
+            if (bulletShellPrefab)
+            {
+                Instantiate(bulletShellPrefab, shellSpawnPoint.position, shellSpawnPoint.rotation);
             }
         }
 

@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-using FuWarrior.Combat;
+using FuWarrior.Attributes;
 
 namespace FuWarrior.Core
 {
@@ -16,18 +15,25 @@ namespace FuWarrior.Core
 
         Rigidbody2D myRigidBody;
         Animator myAnimator;
+        Health myHealth;
 
-        // Start is called before the first frame update
-        void Start()
+        private void Awake() 
         {
             myRigidBody = GetComponent<Rigidbody2D>();
             myAnimator = GetComponent<Animator>();
+            myHealth = GetComponent<Health>();
+        }
+
+        void Start()
+        {
             timeSinceLastAttack = Mathf.Infinity;
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (myHealth.GetIsDead()) {return;}
+
             Run();
             Jump();
             Attack();
