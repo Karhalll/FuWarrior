@@ -15,6 +15,26 @@ MonoBehaviour:
   runSpeed: 50
   jumpSpeed: 150
   timeInPreparedState: 3
+--- !u!114 &4771166025094614987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3439362276894451855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fbeb54ded9782449588896f1d24352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorMappings:
+  - type: 0
+    texture: {fileID: 2800000, guid: bb2e849b70672d14c92cce8a27a4c06f, type: 3}
+    hotspot: {x: 179, y: 176}
+  - type: 1
+    texture: {fileID: 2800000, guid: b7ffa8563b2ed02438757f1c4df5fc30, type: 3}
+    hotspot: {x: 179, y: 176}
+  raycastRadius: 1
 --- !u!1001 &1863694021875313755
 PrefabInstance:
   m_ObjectHideFlags: 0

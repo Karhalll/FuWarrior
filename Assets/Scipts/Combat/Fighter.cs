@@ -13,19 +13,28 @@ namespace FuWarrior.Combat
         [SerializeField] Transform leftArm = null;
         [SerializeField] Transform rightArm = null;
 
+        [SerializeField] float firingAngele = 60f;
+
         Weapon currentWeapon = null;
         PlayerController playerController = null;
         Health myHealth = null;
         Animator myAnimator = null;
+
+        Transform target = null;
+        Vector3 targetPosition;
+
+        bool isPlayer = false;
+        bool isFliped = false;
 
         private void Awake() 
         {
             myAnimator = GetComponent<Animator>();
             myHealth = GetComponent<Health>();
 
-            if (this.gameObject.tag == "Player")
+            if (gameObject.tag == "Player")
             {
-                 playerController = GetComponent<PlayerController>();
+                playerController = GetComponent<PlayerController>();
+                isPlayer = true;
             }         
         }
 
@@ -34,25 +43,56 @@ namespace FuWarrior.Combat
             EquipWeapon();
         }
 
-        private void Update() 
+        private void Update()
         {
-            if (myHealth.GetIsDead())
-            {   
-                return;
-            }
-
-            if (gameObject.tag == "Player")
+            if (myHealth.IsDead())
             {
-                currentWeapon.transform.LookAt(playerController.MousePositionInWorldSpace());
-                currentWeapon.transform.Rotate(Vector3.up, -90f);
+                return;
             }
         }
 
-        //Unity animation events
-        public void Fire()
+        private void LateUpdate() 
         {
-            weaponConfig.LaunchProjectile(currentWeapon.GetProjectileSpawnPoint(), playerController.MousePositionInWorldSpace(), gameObject.tag);
-            weaponConfig.ReleaseBulletShell(currentWeapon.GetShellSpawnPoint());
+            AimWeapon();
+            FlipSprite();
+        }
+
+        private void AimWeapon()
+        {
+            if (isPlayer)
+            {
+                targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            }
+            else
+            {   
+                targetPosition = target.position;
+            }
+
+            Vector2 direction = targetPosition - currentWeapon.transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            if (isFliped)
+            {
+                angle += 180f;
+            }
+            
+            Quaternion rotation = Quaternion.AngleAxis(angle - firingAngele, Vector3.forward);
+            leftArm.transform.rotation = rotation;
+            rightArm.transform.rotation = rotation;
+        }
+
+        private void FlipSprite()
+        {
+            bool lookingRight = transform.position.x < targetPosition.x;
+            if (lookingRight)
+            {
+                transform.localScale = new Vector2(1f, 1f);
+                isFliped = false;
+            }
+            else
+            {
+                transform.localScale = new Vector2(-1f, 1f);
+                isFliped = true;
+            }
         }
 
         private void EquipWeapon()
@@ -68,6 +108,13 @@ namespace FuWarrior.Combat
                 Debug.LogError(this.gameObject.name + " don't have Weapon Config or Weapon Slot set");
             }
             
+        }
+
+        //Unity animation events
+        public void Fire()
+        {
+            weaponConfig.LaunchProjectile(currentWeapon.GetProjectileSpawnPoint(), playerController.MousePositionInWorldSpace(), gameObject.tag);
+            weaponConfig.ReleaseBulletShell(currentWeapon.GetShellSpawnPoint());
         }
     }
 }

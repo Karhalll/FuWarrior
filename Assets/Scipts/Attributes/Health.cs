@@ -33,7 +33,7 @@ namespace FuWarrior.Attributes
             }
         }
 
-        public bool GetIsDead()
+        public bool IsDead()
         {
             return isDead;
         }

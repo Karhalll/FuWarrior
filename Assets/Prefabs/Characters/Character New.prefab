@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4866243877687813392}
   - component: {fileID: 1423872634783659453}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Character New
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8005039224858553244}
+  - {fileID: 8118632595654519066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89,10 +89,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponConfig: {fileID: 11400000, guid: 153c6abf9f873d544ba3fbf32fb9aef7, type: 2}
-  weaponSlot: {fileID: 5606669643253815617}
-  leftArm: {fileID: 8532778152482649930}
-  rightArm: {fileID: 5403211196004176845}
-  firingAngele: 60
+  weaponSlot: {fileID: 5940905150909127623}
+  leftArm: {fileID: 7626341372619339212}
+  rightArm: {fileID: 0}
 --- !u!114 &4866243877687813392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1, y: -4.94}
+  m_Offset: {x: 0.15726393, y: -5.22}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -132,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9094285, y: 3.410534}
   m_EdgeRadius: 0
---- !u!1001 &8752888032881475135
+--- !u!1001 &7405097414686473401
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -199,34 +198,23 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bones
       objectReference: {fileID: 0}
-    - target: {fileID: 8713265809573318819, guid: 00aad96c6c27716438d4e7a27c417ba4,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.59
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00aad96c6c27716438d4e7a27c417ba4, type: 3}
---- !u!4 &8005039224858553244 stripped
+--- !u!4 &8118632595654519066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1616543268523857315, guid: 00aad96c6c27716438d4e7a27c417ba4,
     type: 3}
-  m_PrefabInstance: {fileID: 8752888032881475135}
+  m_PrefabInstance: {fileID: 7405097414686473401}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5403211196004176845 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3712248939933920754, guid: 00aad96c6c27716438d4e7a27c417ba4,
-    type: 3}
-  m_PrefabInstance: {fileID: 8752888032881475135}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8532778152482649930 stripped
+--- !u!4 &7626341372619339212 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1085936850580523381, guid: 00aad96c6c27716438d4e7a27c417ba4,
     type: 3}
-  m_PrefabInstance: {fileID: 8752888032881475135}
+  m_PrefabInstance: {fileID: 7405097414686473401}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5606669643253815617 stripped
+--- !u!4 &5940905150909127623 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3798334520855816062, guid: 00aad96c6c27716438d4e7a27c417ba4,
     type: 3}
-  m_PrefabInstance: {fileID: 8752888032881475135}
+  m_PrefabInstance: {fileID: 7405097414686473401}
   m_PrefabAsset: {fileID: 0}

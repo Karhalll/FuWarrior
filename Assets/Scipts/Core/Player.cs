@@ -32,13 +32,12 @@ namespace FuWarrior.Core
         // Update is called once per frame
         void Update()
         {
-            if (myHealth.GetIsDead()) {return;}
+            if (myHealth.IsDead()) {return;}
 
             Run();
             Jump();
             Attack();
             Kick();
-            FlipSprite();
 
             TimeUpdaters();
 
@@ -89,15 +88,6 @@ namespace FuWarrior.Core
             if (CrossPlatformInputManager.GetButtonDown("Fire2"))
             {
                 print(gameObject.name + " is kicking");
-            }
-        }
-
-        private void FlipSprite()
-        {
-            bool playerHorizontalSpeed = Mathf.Abs(myRigidBody.velocity.x) > Mathf.Epsilon;
-            if (playerHorizontalSpeed)
-            {
-                transform.localScale = new Vector2(Mathf.Sign(myRigidBody.velocity.x), 1f);
             }
         }
 

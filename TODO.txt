@@ -1,5 +1,6 @@
 BUGY
 Hoří:
+-vizální oprava míření
 
 
 Víme, ale zatím neřešíme:
