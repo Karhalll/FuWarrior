@@ -18,8 +18,6 @@ namespace FuWarrior.Control
 
         [SerializeField] CursorMapping[] cursorMappings = null;
 
-        [SerializeField] float raycastRadius = 1f;
-
         Rigidbody2D RigidBody2D = null;
         Fighter fighter = null;
         Health health = null;
@@ -28,16 +26,17 @@ namespace FuWarrior.Control
         {
             RigidBody2D = GetComponent<Rigidbody2D>();
             fighter = GetComponent<Fighter>();
+            health = GetComponent<Health>();
         }
 
         private void Update() 
         {
             //if (InteractWithUI()) return;
-            // if (health.IsDead()) 
-            // {
-            //     SetCursor(CursorType.Dead);
-            //     return;
-            // }
+            if (health.IsDead()) 
+            {
+                //SetCursor(CursorType.Dead);
+                return;
+            }
             if (InteractWithComponent()) return;
 
             SetCursor(CursorType.Aim);

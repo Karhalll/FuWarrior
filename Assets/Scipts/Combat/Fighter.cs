@@ -10,10 +10,7 @@ namespace FuWarrior.Combat
     {
         [SerializeField] WeaponConfig weaponConfig = null;
         [SerializeField] Transform weaponSlot = null;
-        [SerializeField] Transform leftArm = null;
-        [SerializeField] Transform rightArm = null;
-
-        [SerializeField] float firingAngele = 60f;
+        [SerializeField] Transform arms = null;
 
         Weapon currentWeapon = null;
         PlayerController playerController = null;
@@ -49,12 +46,19 @@ namespace FuWarrior.Combat
             {
                 return;
             }
+
+            FlipSprite();
         }
 
         private void LateUpdate() 
         {
             AimWeapon();
-            FlipSprite();
+            
+        }
+
+        public bool GetIsFliped()
+        {
+            return isFliped;
         }
 
         private void AimWeapon()
@@ -65,24 +69,29 @@ namespace FuWarrior.Combat
             }
             else
             {   
+                target = GameObject.FindGameObjectWithTag("Player").transform;
                 targetPosition = target.position;
             }
 
-            Vector2 direction = targetPosition - currentWeapon.transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            if (isFliped)
+            if (myAnimator.GetBool("Prepared") || myAnimator.GetBool("isAttacking"))
             {
-                angle += 180f;
+                Vector3 direction = (targetPosition - arms.position).normalized;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                
+                if (isFliped)
+                {
+                    angle += 180f;                   
+                } 
+
+                arms.transform.eulerAngles = new Vector3(0, 0, angle);       
             }
             
-            Quaternion rotation = Quaternion.AngleAxis(angle - firingAngele, Vector3.forward);
-            leftArm.transform.rotation = rotation;
-            rightArm.transform.rotation = rotation;
         }
 
         private void FlipSprite()
         {
             bool lookingRight = transform.position.x < targetPosition.x;
+
             if (lookingRight)
             {
                 transform.localScale = new Vector2(1f, 1f);

@@ -4,8 +4,8 @@ namespace FuWarrior.Control
     {
         Aim,
         AimToWeakPoint,
-        Interact,
-        UI,
-        Dead,
+        //Interact,
+        //UI,
+        //Dead,
     }
 }

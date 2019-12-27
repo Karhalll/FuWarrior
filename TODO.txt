@@ -1,19 +1,14 @@
 BUGY
 Hoří:
--vizální oprava míření
-
 
 Víme, ale zatím neřešíme:
 -Animace
--Otáčení zbraně za cílem
 -Kolize kulek s okolím
--Vniknutí kulky do cíle (nedostatečný výpočet na straně Unity)
 
 TODO
 -umírání
 	*vypnout ovládání
 	*vytvořit stavy (dead, runing, jumping, etc.)
--custom cursor
 -menu
 	*SceneManager
 	*MoreLevel

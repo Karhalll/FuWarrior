@@ -5,6 +5,7 @@ namespace FuWarrior.Attributes
     public class Health : MonoBehaviour 
     {
         [SerializeField] float health = 1000f;
+        [SerializeField] float vanishingTimeOfCorpse = 5f;
 
         Animator myAnimator = null;
 
@@ -26,8 +27,9 @@ namespace FuWarrior.Attributes
                 if (!isDead)
                 {
                     PlayDeathAnimation();
+                    GetComponent<Rigidbody2D>().isKinematic = true;
+                    Destroy(gameObject, vanishingTimeOfCorpse);
                 }
-
                 health = 0;
                 isDead = true;
             }

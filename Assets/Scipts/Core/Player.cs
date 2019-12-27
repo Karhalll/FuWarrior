@@ -29,7 +29,6 @@ namespace FuWarrior.Core
             timeSinceLastAttack = Mathf.Infinity;
         }
 
-        // Update is called once per frame
         void Update()
         {
             if (myHealth.IsDead()) {return;}
@@ -94,12 +93,6 @@ namespace FuWarrior.Core
         private void TimeUpdaters()
         {
             timeSinceLastAttack += Time.deltaTime;
-        }
-
-        // Unitz animations events
-        public void Hit()
-        {
-            print("Plesk");
         }
     }
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FuWarrior.Combat
 {
@@ -38,7 +36,7 @@ namespace FuWarrior.Combat
             }
             else 
             {
-                Debug.LogWarning(this.name + " weapon config is missing Weapon Prefab");
+                Debug.LogWarning(this.name + " weapon config is missing Weapon Prefab.");
             }
             
             return null;
@@ -54,6 +52,12 @@ namespace FuWarrior.Combat
             if (blastPrefab != null)
             {
                 GameObject blast = Instantiate(blastPrefab, spawnPoint.position, spawnPoint.rotation);
+
+                if(GameObject.FindGameObjectWithTag("Player").GetComponent<Fighter>().GetIsFliped())
+                {
+                    blast.transform.Rotate(0f, 0f, 180f);
+                }
+               
                 Destroy(blast, blastTimeDuration);
             }
         }

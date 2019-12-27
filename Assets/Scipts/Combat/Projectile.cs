@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 using FuWarrior.Attributes;
@@ -35,7 +34,7 @@ namespace FuWarrior.Combat
             Destroy(gameObject, lifeTime);
         }
 
-        private void Update() 
+        private void FixedUpdate() 
         {
             transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
