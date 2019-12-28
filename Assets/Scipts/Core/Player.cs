@@ -16,12 +16,14 @@ namespace FuWarrior.Core
         Rigidbody2D myRigidBody;
         Animator myAnimator;
         Health myHealth;
+        Collider2D myFeet;
 
         private void Awake() 
         {
             myRigidBody = GetComponent<Rigidbody2D>();
             myAnimator = GetComponent<Animator>();
             myHealth = GetComponent<Health>();
+            myFeet = GetComponent<Collider2D>();
         }
 
         void Start()
@@ -58,7 +60,7 @@ namespace FuWarrior.Core
 
         private void Jump()
         {
-            //if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
+            if (!myFeet.IsTouchingLayers(LayerMask.GetMask("Enviroment"))) { return; }
 
             if (CrossPlatformInputManager.GetButtonDown("Jump"))
             {

@@ -16,9 +16,14 @@ namespace FuWarrior.Combat
         [SerializeField] float weaponDamage = 100f;
         [SerializeField] float attackSpeed = 1f;
 
+        const string weaponName = "Weapon";
 
         public Weapon Spawn(Transform spawnPosition, Animator animator)
         {
+            DestroyOldWeapon(spawnPosition);
+
+            Weapon weapon = null;
+
             if (animationOverride != null)
             {
                 animator.runtimeAnimatorController = animationOverride;
@@ -31,8 +36,10 @@ namespace FuWarrior.Combat
             
             if (weaponPrefab != null)
             {
-            
-               return Instantiate(weaponPrefab, spawnPosition);
+               weapon = Instantiate(weaponPrefab, spawnPosition);
+               weapon.gameObject.name = weaponName;
+
+               return weapon;
             }
             else 
             {
@@ -68,6 +75,16 @@ namespace FuWarrior.Combat
             {
                 Instantiate(bulletShellPrefab, shellSpawnPoint.position, shellSpawnPoint.rotation);
             }
+        }
+
+        private void DestroyOldWeapon(Transform spawnPosition)
+        {
+            Transform oldWeapon = spawnPosition.Find(weaponName);
+            
+            if (oldWeapon == null) return;
+
+            oldWeapon.name = "DESTROYING";
+            Destroy(oldWeapon.gameObject);
         }
 
     }

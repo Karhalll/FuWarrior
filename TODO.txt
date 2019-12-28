@@ -1,11 +1,19 @@
 BUGY
 Hoří:
+-při běhu 2x attack speed (špatné napojení animací v animátoru -> nastudovat layering animací)
+
+-Dodělat shotgun (broky a jejich trajektorie--rozptyl)
+-přidat ke zbraním animaci přebíjení 
+-systém zásobníku
 
 Víme, ale zatím neřešíme:
 -Animace
 -Kolize kulek s okolím
 
+- posunutí nepřátel po kontaktu (ne zrušit, ale upravit)
+
 TODO
+
 -umírání
 	*vypnout ovládání
 	*vytvořit stavy (dead, runing, jumping, etc.)
@@ -15,8 +23,18 @@ TODO
 	*CourutineOnLoad -> načítací obrazovka před levelem
 -game load screen	
 -enviroment
--pickups (weapons)
 -zvětšit arzenál zbraní
 -staty
 -UI
+-AI:
+	*patroling na předem spawnutých enemy
+	*chasing mechanics (u předspawnutých enemy v rácmi jejich patrol route, u dymamicky spawnutých til the end of times)
+	*line of sight mechaniku
+	*susspision stav kdy enemy viděl hráče, ale už ho nemá line of sight
+
+-awsome mod:
+	*pokud má hráč dostatek awesomeness, tak final blow bossovi spustí awsome video (slow motion při posledních dopadajících kulkách)
+						- větší dmg do weak pointu
+						- a achievment zabití bosse v awsome modu
+	* hráš musí mít spravný equip po celou dobu fightu tzn. hráč nesmí měnit equip po tom co vleze k bossovi tzn. save před vchodem k bossovi
 

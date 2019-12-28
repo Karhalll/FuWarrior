@@ -37,7 +37,7 @@ namespace FuWarrior.Combat
 
         private void Start() 
         {
-            EquipWeapon();
+            EquipWeapon(weaponConfig);
         }
 
         private void Update()
@@ -104,13 +104,14 @@ namespace FuWarrior.Combat
             }
         }
 
-        private void EquipWeapon()
+        public void EquipWeapon(WeaponConfig weapon)
         {
             Animator animation = GetComponent<Animator>();
 
-            if (weaponConfig != null && weaponSlot != null)
+            if (weapon != null && weaponSlot != null)
             {
-                currentWeapon = weaponConfig.Spawn(weaponSlot, animation);
+                weaponConfig = weapon;
+                currentWeapon = weapon.Spawn(weaponSlot, animation);
             }
             else
             {

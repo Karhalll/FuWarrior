@@ -27,7 +27,7 @@ namespace FuWarrior.Attributes
                 if (!isDead)
                 {
                     PlayDeathAnimation();
-                    GetComponent<Rigidbody2D>().isKinematic = true;
+                    //GetComponent<Rigidbody2D>().isKinematic = true;
                     Destroy(gameObject, vanishingTimeOfCorpse);
                 }
                 health = 0;

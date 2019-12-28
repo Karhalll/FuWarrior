@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3315843186470070181}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1482983, y: 0.14562392, z: 0}
+  m_LocalPosition: {x: 2.88, y: 0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7278583779025966712}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4495926073360344049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.39, y: 0.62, z: 0}
+  m_LocalPosition: {x: -1.07, y: 0.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7278583779025966712}
@@ -71,9 +71,9 @@ GameObject:
   - component: {fileID: 8638710142241992232}
   - component: {fileID: 4440824576235683704}
   m_Layer: 0
-  m_Name: M60
+  m_Name: Shotgun
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -131,7 +131,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7697304809727909222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.67, y: 0.59, z: 0}
+  m_LocalPosition: {x: 2.51, y: 0.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4277039785045745860}
@@ -178,7 +178,7 @@ SpriteRenderer:
   m_SortingLayerID: -1309716851
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 4bbb30fd093bc564d82bd8f59b1747cc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9ba6dc7d5349f0149bf24ee8243c15ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

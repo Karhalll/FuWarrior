@@ -55,3 +55,6 @@ TagManager:
   - name: BulletShells
     uniqueID: 3877113863
     locked: 0
+  - name: Shooting Hand
+    uniqueID: 1206274833
+    locked: 0
