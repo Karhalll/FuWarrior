@@ -24,7 +24,18 @@ namespace FuWarrior.Attributes
             }
             else
             {
-                if (!isDead)
+                Die();
+            }
+        }
+
+        public bool IsDead()
+        {
+            return isDead;
+        }
+
+        private void Die()
+        {
+            if (!isDead)
                 {
                     PlayDeathAnimation();
                     //GetComponent<Rigidbody2D>().isKinematic = true;
@@ -32,12 +43,6 @@ namespace FuWarrior.Attributes
                 }
                 health = 0;
                 isDead = true;
-            }
-        }
-
-        public bool IsDead()
-        {
-            return isDead;
         }
 
         private void PlayDeathAnimation()

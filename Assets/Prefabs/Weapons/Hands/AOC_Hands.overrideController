@@ -6,12 +6,12 @@ AnimatorOverrideController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AOC_M60
+  m_Name: AOC_Hands
   m_Controller: {fileID: 9100000, guid: dde7f7588b5b3fd4882b5783c84eb447, type: 2}
   m_Clips:
   - m_OriginalClip: {fileID: 7400000, guid: d4c516933d0be284998e47234a6ac333, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: d4c516933d0be284998e47234a6ac333, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2150c92875fe19a4e968cecd19e95479, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: fadf0c183d88d5c449a8120378383529, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: fadf0c183d88d5c449a8120378383529, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a8cf243565e0b6f4aa1ce9d69e606ce7, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: e4051bdcff1bcd148b5a7678584bf740, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: e4051bdcff1bcd148b5a7678584bf740, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d65f2d258e77f0c838a8af61b8a82a03, type: 2}

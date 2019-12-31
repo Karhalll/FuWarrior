@@ -6,6 +6,11 @@ namespace FuWarrior.Combat
 {
     public class WeakPoint : MonoBehaviour, IRaycastable
     {
+        private void OnCollisionEnter2D(Collision2D other) 
+        {
+            Debug.Log("Weak point Hitted!");
+        }
+
         public CursorType GetCursorType()
         {
             return CursorType.AimToWeakPoint;

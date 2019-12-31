@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
 using FuWarrior.Attributes;
+using FuWarrior.Combat;
 
 namespace FuWarrior.Core
 {
@@ -10,6 +12,7 @@ namespace FuWarrior.Core
         [SerializeField] float runSpeed = 5f;
         [SerializeField] float jumpSpeed = 5f;
         [SerializeField] float timeInPreparedState = 3f;
+        [SerializeField] float loweringTime = 0.5f;
 
         float timeSinceLastAttack;
 
@@ -17,6 +20,7 @@ namespace FuWarrior.Core
         Animator myAnimator;
         Health myHealth;
         Collider2D myFeet;
+        Fighter myFighter;
 
         private void Awake() 
         {
@@ -24,6 +28,7 @@ namespace FuWarrior.Core
             myAnimator = GetComponent<Animator>();
             myHealth = GetComponent<Health>();
             myFeet = GetComponent<Collider2D>();
+            myFighter = GetComponent<Fighter>();
         }
 
         void Start()

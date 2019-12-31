@@ -22,6 +22,8 @@ namespace FuWarrior.Combat
 
         bool isPlayer = false;
         bool isFliped = false;
+        bool isHitting = false;
+        string myOwner = null;
 
         private void Awake() 
         {
@@ -38,6 +40,28 @@ namespace FuWarrior.Combat
         private void Start() 
         {
             EquipWeapon(weaponConfig);
+        }
+
+        private void OnTriggerEnter2D(Collider2D other) 
+        {
+            if (!other.gameObject.GetComponentInParent<Fighter>()) {return;}
+            if (myOwner != other.gameObject.GetComponentInParent<Fighter>().tag && isHitting)
+            {
+                Debug.Log("Hitting " + other.gameObject.name);
+
+                if (other.gameObject.GetComponent<WeakPoint>())
+                {
+                    Debug.Log("Critical Hit Attempt");
+                    other.gameObject.GetComponentInParent<Health>().GetDamage(weaponConfig.GetWeaponCriticalDamage());
+                    Debug.Log(weaponConfig.GetWeaponCriticalDamage());
+                }
+                else
+                {
+                    Debug.Log("Hit Attempt");
+                    other.gameObject.GetComponentInParent<Health>().GetDamage(weaponConfig.GetWeaponDamage());
+                    Debug.Log(weaponConfig.GetWeaponDamage());
+                }
+            }
         }
 
         private void Update()
@@ -61,6 +85,40 @@ namespace FuWarrior.Combat
             return isFliped;
         }
 
+        public void EquipWeapon(WeaponConfig weapon)
+        {
+            Animator animation = GetComponent<Animator>();
+
+            if (weapon != null && weaponSlot != null)
+            {
+                weaponConfig = weapon;
+                currentWeapon = weapon.Spawn(weaponSlot, animation);
+            }
+            else
+            {
+                Debug.LogError(this.gameObject.name + " don't have Weapon Config or Weapon Slot set");
+            }
+            
+        }
+
+        public float RotationAngleTowardsMouse()
+        {
+            Vector3 direction = (targetPosition - arms.position).normalized;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            if (isFliped)
+            {
+                angle += 180f;
+            }
+
+            return angle;
+        }
+
+        public Transform GetArms()
+        {
+            return arms;
+        }
+
         private void AimWeapon()
         {
             if (isPlayer)
@@ -75,17 +133,10 @@ namespace FuWarrior.Combat
 
             if (myAnimator.GetBool("Prepared") || myAnimator.GetBool("isAttacking"))
             {
-                Vector3 direction = (targetPosition - arms.position).normalized;
-                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                
-                if (isFliped)
-                {
-                    angle += 180f;                   
-                } 
-
-                arms.transform.eulerAngles = new Vector3(0, 0, angle);       
+                float angle = RotationAngleTowardsMouse();
+                arms.transform.eulerAngles = new Vector3(0, 0, angle);
             }
-            
+
         }
 
         private void FlipSprite()
@@ -104,27 +155,21 @@ namespace FuWarrior.Combat
             }
         }
 
-        public void EquipWeapon(WeaponConfig weapon)
-        {
-            Animator animation = GetComponent<Animator>();
-
-            if (weapon != null && weaponSlot != null)
-            {
-                weaponConfig = weapon;
-                currentWeapon = weapon.Spawn(weaponSlot, animation);
-            }
-            else
-            {
-                Debug.LogError(this.gameObject.name + " don't have Weapon Config or Weapon Slot set");
-            }
-            
-        }
-
         //Unity animation events
         public void Fire()
         {
             weaponConfig.LaunchProjectile(currentWeapon.GetProjectileSpawnPoint(), playerController.MousePositionInWorldSpace(), gameObject.tag);
             weaponConfig.ReleaseBulletShell(currentWeapon.GetShellSpawnPoint());
+        }
+
+        public void HitStart()
+        {
+            isHitting = true;
+        }
+
+        public void HitStop()
+        {
+            isHitting = false;
         }
     }
 }

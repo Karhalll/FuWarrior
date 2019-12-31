@@ -14,6 +14,7 @@ namespace FuWarrior.Combat
         
         [Header("Weapon Properities")]
         [SerializeField] float weaponDamage = 100f;
+        [SerializeField] float critMultiplier = 1.5f;
         [SerializeField] float attackSpeed = 1f;
 
         const string weaponName = "Weapon";
@@ -75,6 +76,16 @@ namespace FuWarrior.Combat
             {
                 Instantiate(bulletShellPrefab, shellSpawnPoint.position, shellSpawnPoint.rotation);
             }
+        }
+
+        public float GetWeaponDamage()
+        {
+            return weaponDamage;
+        }
+
+        public float GetWeaponCriticalDamage()
+        {
+            return weaponDamage * critMultiplier;
         }
 
         private void DestroyOldWeapon(Transform spawnPosition)
