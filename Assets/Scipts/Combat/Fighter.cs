@@ -12,6 +12,8 @@ namespace FuWarrior.Combat
         [SerializeField] Transform weaponSlot = null;
         [SerializeField] Transform arms = null;
 
+        [SerializeField] float timeInPreparedState = 3f;
+
         Weapon currentWeapon = null;
         PlayerController playerController = null;
         Health myHealth = null;
@@ -24,6 +26,8 @@ namespace FuWarrior.Combat
         bool isFliped = false;
         bool isHitting = false;
         string myOwner = null;
+
+        float timeSinceLastAttack;
 
         private void Awake() 
         {
@@ -40,6 +44,7 @@ namespace FuWarrior.Combat
         private void Start() 
         {
             EquipWeapon(weaponConfig);
+            timeSinceLastAttack = Mathf.Infinity;
         }
 
         private void OnTriggerEnter2D(Collider2D other) 
@@ -72,7 +77,10 @@ namespace FuWarrior.Combat
             }
 
             FlipSprite();
-        }
+            isPrepared();
+
+            TimeUpdaters();
+        }   
 
         private void LateUpdate() 
         {
@@ -119,13 +127,34 @@ namespace FuWarrior.Combat
             return arms;
         }
 
+        public void Attack()
+        {
+            myAnimator.SetBool("Prepared", false);
+            timeSinceLastAttack = 0;
+            myAnimator.SetBool("isAttacking", true);
+        }
+
+        public void Prepared()
+        {
+            myAnimator.SetBool("isAttacking", false);
+            myAnimator.SetBool("Prepared", true);
+        }
+
+        private void isPrepared()
+        {
+            if (timeSinceLastAttack > timeInPreparedState)
+            {
+                myAnimator.SetBool("Prepared", false);
+            }
+        }
+
         private void AimWeapon()
         {
             if (isPlayer)
             {
                 targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
-            else
+            else if (GameObject.FindGameObjectWithTag("Player"))
             {   
                 target = GameObject.FindGameObjectWithTag("Player").transform;
                 targetPosition = target.position;
@@ -155,10 +184,15 @@ namespace FuWarrior.Combat
             }
         }
 
+        private void TimeUpdaters()
+        {
+            timeSinceLastAttack += Time.deltaTime;
+        }
+
         //Unity animation events
         public void Fire()
         {
-            weaponConfig.LaunchProjectile(currentWeapon.GetProjectileSpawnPoint(), playerController.MousePositionInWorldSpace(), gameObject.tag);
+            weaponConfig.LaunchProjectile(currentWeapon.GetProjectileSpawnPoint(), targetPosition, gameObject.tag);
             weaponConfig.ReleaseBulletShell(currentWeapon.GetShellSpawnPoint());
         }
 

@@ -31,26 +31,14 @@ namespace FuWarrior.Core
             myFighter = GetComponent<Fighter>();
         }
 
-        void Start()
-        {
-            timeSinceLastAttack = Mathf.Infinity;
-        }
-
         void Update()
         {
             if (myHealth.IsDead()) {return;}
 
             Run();
             Jump();
-            Attack();
+            HandleAttack();
             Kick();
-
-            TimeUpdaters();
-
-            if (timeSinceLastAttack > timeInPreparedState)
-            {
-                myAnimator.SetBool("Prepared", false);
-            }
         }
 
         private void Run()
@@ -74,18 +62,15 @@ namespace FuWarrior.Core
             }
         }
 
-        private void Attack()
+        private void HandleAttack()
         {
             if (CrossPlatformInputManager.GetButton("Fire1"))
             {
-                myAnimator.SetBool("Prepared", false);
-                timeSinceLastAttack = 0;
-                myAnimator.SetBool("isAttacking", true);
+                myFighter.Attack();
             }
             else
             {
-                myAnimator.SetBool("isAttacking", false);
-                myAnimator.SetBool("Prepared", true);
+                myFighter.Prepared();
             }
         }
 
@@ -95,11 +80,6 @@ namespace FuWarrior.Core
             {
                 print(gameObject.name + " is kicking");
             }
-        }
-
-        private void TimeUpdaters()
-        {
-            timeSinceLastAttack += Time.deltaTime;
         }
     }
 
