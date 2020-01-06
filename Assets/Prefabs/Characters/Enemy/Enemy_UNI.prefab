@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spotDistance: 30
+  patrolPath: {fileID: 0}
+  patrolSpeed: 5
+  waypointTolerance: 1
+  dwellingTime: 3
+  suspicionTime: 5
 --- !u!1001 &6788419860129190507
 PrefabInstance:
   m_ObjectHideFlags: 0

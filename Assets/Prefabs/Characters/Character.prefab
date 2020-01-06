@@ -674,6 +674,7 @@ GameObject:
   - component: {fileID: 8509728570534812475}
   - component: {fileID: 4866243877687813392}
   - component: {fileID: 1423872634783659453}
+  - component: {fileID: 7893059631462172213}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -752,6 +753,7 @@ MonoBehaviour:
   weaponConfig: {fileID: 11400000, guid: 05b257f80f5f32b4690df4ebb8666d83, type: 2}
   weaponSlot: {fileID: 5606669643253815617}
   arms: {fileID: 4313887447886652683}
+  timeInPreparedState: 3
 --- !u!114 &4866243877687813392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,6 +794,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9094285, y: 3.410534}
   m_EdgeRadius: 0
+--- !u!114 &7893059631462172213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3919884375189718228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3914c03ac2a270e42998f5216f34cbde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 50
+  walkSpeed: 5
 --- !u!1 &4188260893771058388
 GameObject:
   m_ObjectHideFlags: 0

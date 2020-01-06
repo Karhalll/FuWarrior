@@ -35,7 +35,7 @@ namespace FuWarrior.Core
         {
             if (myHealth.IsDead()) {return;}
 
-            Run();
+            //Run();
             Jump();
             HandleAttack();
             Kick();

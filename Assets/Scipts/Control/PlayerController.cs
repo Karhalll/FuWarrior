@@ -1,8 +1,10 @@
+using System;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 using FuWarrior.Combat;
 using FuWarrior.Attributes;
-using System;
+using FuWarrior.Movement;
 
 namespace FuWarrior.Control
 {
@@ -21,12 +23,14 @@ namespace FuWarrior.Control
         Rigidbody2D RigidBody2D = null;
         Fighter fighter = null;
         Health health = null;
+        Mover mover = null;
 
         private void Awake() 
         {
             RigidBody2D = GetComponent<Rigidbody2D>();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
+            mover = GetComponent<Mover>();
         }
 
         private void Update() 
@@ -37,6 +41,9 @@ namespace FuWarrior.Control
                 //SetCursor(CursorType.Dead);
                 return;
             }
+
+            HandleMovement();
+
             if (InteractWithComponent()) return;
 
             SetCursor(CursorType.Aim);
@@ -53,6 +60,12 @@ namespace FuWarrior.Control
             );
 
             return mousePoint;
+        }
+
+        private void HandleMovement()
+        {
+            float controlThrow = CrossPlatformInputManager.GetAxis("Horizontal"); // value is betwen -1 to +1
+            mover.Moveing(controlThrow);
         }
 
         private bool InteractWithComponent()

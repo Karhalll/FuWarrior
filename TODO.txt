@@ -1,6 +1,7 @@
 BUGY
 Hoří:
--při běhu 2x attack speed (špatné napojení animací v animátoru -> nastudovat layering animací)
+
+- enemy stále míři po smrti hráče na hráče a to rozbíjí patroling
 
 -Dodělat shotgun (broky a jejich trajektorie--rozptyl)
 -přidat ke zbraním animaci přebíjení 
@@ -27,7 +28,7 @@ TODO
 -staty
 -UI
 -AI:
-	*patroling na předem spawnutých enemy
+	*roptyl střelby na hráče "od hlavy k patě"
 	*chasing mechanics (u předspawnutých enemy v rácmi jejich patrol route, u dymamicky spawnutých til the end of times)
 	*line of sight mechaniku
 	*susspision stav kdy enemy viděl hráče, ale už ho nemá line of sight

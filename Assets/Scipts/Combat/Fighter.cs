@@ -17,9 +17,9 @@ namespace FuWarrior.Combat
         Weapon currentWeapon = null;
         PlayerController playerController = null;
         Health myHealth = null;
-        Animator myAnimator = null;
+        public Animator myAnimator = null;
 
-        Transform target = null;
+        Vector3 target = new Vector3(0, 0, 0);
         Vector3 targetPosition;
 
         bool isPlayer = false;
@@ -140,6 +140,11 @@ namespace FuWarrior.Combat
             myAnimator.SetBool("Prepared", true);
         }
 
+        public void SetNewTarget(Vector3 newtarget)
+        {
+            target = newtarget;
+        }
+
         private void isPrepared()
         {
             if (timeSinceLastAttack > timeInPreparedState)
@@ -156,8 +161,8 @@ namespace FuWarrior.Combat
             }
             else if (GameObject.FindGameObjectWithTag("Player"))
             {   
-                target = GameObject.FindGameObjectWithTag("Player").transform;
-                targetPosition = target.position;
+                //target = GameObject.FindGameObjectWithTag("Player").transform;
+                targetPosition = target;
             }
 
             if (myAnimator.GetBool("Prepared") || myAnimator.GetBool("isAttacking"))
