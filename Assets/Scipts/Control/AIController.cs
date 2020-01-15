@@ -41,7 +41,12 @@ namespace FuWarrior.Control
 
         private void Update() 
         {
-            if (player == null) {return;}
+            if (player == null || GetComponent<Health>().IsDead()) 
+            {
+                fighter.Prepared();
+                return;
+            }
+
             isPlayerSpotted = Vector2.Distance(transform.position, player.transform.position) < spotDistance;
             if (isPlayerSpotted && !player.GetComponent<Health>().IsDead())
             {

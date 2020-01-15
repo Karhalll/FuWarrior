@@ -5,7 +5,7 @@ namespace FuWarrior.Movement
     public class Mover : MonoBehaviour 
     {
         [SerializeField] float runSpeed = 50f;
-        [SerializeField] float walkSpeed = 5f;
+        //[SerializeField] float walkSpeed = 5f;
 
         float moveSpeed;
 

@@ -1,7 +1,8 @@
 BUGY
 Hoří:
 
-- enemy stále míři po smrti hráče na hráče a to rozbíjí patroling
+
+- předělat hit kulky z kolize na raycast!!! 
 
 -Dodělat shotgun (broky a jejich trajektorie--rozptyl)
 -přidat ke zbraním animaci přebíjení 

@@ -84,8 +84,11 @@ namespace FuWarrior.Combat
 
         private void LateUpdate() 
         {
-            AimWeapon();
-            
+            if (myHealth.IsDead())
+            {
+                return;
+            }
+            AimWeapon(); 
         }
 
         public bool GetIsFliped()

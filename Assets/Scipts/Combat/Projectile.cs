@@ -26,7 +26,7 @@ namespace FuWarrior.Combat
         {
             myRigidBody = GetComponent<Rigidbody2D>();
         }
-
+        
         private void Start() 
         {
             transform.LookAt(target);
@@ -41,7 +41,11 @@ namespace FuWarrior.Combat
 
         private void OnTriggerEnter2D(Collider2D other) 
         {
-            if (!other.gameObject.GetComponentInParent<Fighter>()) {return;}
+            if (!other.gameObject.GetComponentInParent<Fighter>()) 
+            {
+                Destroy(gameObject);
+                return;
+            }
             if (myOwner != other.gameObject.GetComponentInParent<Fighter>().tag)
             {
                 if (other.GetComponent<BlowOffable>())

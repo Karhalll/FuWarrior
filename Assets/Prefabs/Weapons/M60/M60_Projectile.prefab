@@ -263,9 +263,7 @@ MonoBehaviour:
   bloosEffectStickTime: 0.1
   speed: 100
   lifeTime: 5
-  StackChanceInPercents: 70
-  blowOfVelocity: 30
-  torqueForce: 30
+  StackChanceInPercents: 49.6
 --- !u!70 &8423584853912168092
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

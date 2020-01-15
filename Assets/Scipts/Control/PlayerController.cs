@@ -35,10 +35,8 @@ namespace FuWarrior.Control
 
         private void Update() 
         {
-            //if (InteractWithUI()) return;
             if (health.IsDead()) 
             {
-                //SetCursor(CursorType.Dead);
                 return;
             }
 

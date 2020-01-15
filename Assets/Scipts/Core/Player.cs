@@ -11,8 +11,8 @@ namespace FuWarrior.Core
     {
         [SerializeField] float runSpeed = 5f;
         [SerializeField] float jumpSpeed = 5f;
-        [SerializeField] float timeInPreparedState = 3f;
-        [SerializeField] float loweringTime = 0.5f;
+        // [SerializeField] float timeInPreparedState = 3f;
+        // [SerializeField] float loweringTime = 0.5f;
 
         float timeSinceLastAttack;
 
@@ -33,7 +33,11 @@ namespace FuWarrior.Core
 
         void Update()
         {
-            if (myHealth.IsDead()) {return;}
+            if (myHealth.IsDead()) 
+            {
+                myFighter.Prepared();
+                return;
+            }
 
             //Run();
             Jump();

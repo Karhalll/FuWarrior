@@ -1,19 +1,33 @@
+using System;
 using UnityEngine;
 
 namespace FuWarrior.Attributes
 {
     public class Health : MonoBehaviour 
     {
-        [SerializeField] float health = 1000f;
+        [SerializeField] float maxHealth = 1000f;
         [SerializeField] float vanishingTimeOfCorpse = 5f;
 
         Animator myAnimator = null;
 
+        float health = 0f;
         bool isDead = false;
+
+        public event Action onTakeDamage;
 
         private void Awake() 
         {
             myAnimator = GetComponent<Animator>();
+            health = maxHealth;
+        }
+
+        private void Start() 
+        {
+        }
+
+        public float GetHealthInPercent()
+        {
+            return (100 * health) / maxHealth;
         }
 
         public void GetDamage(float damage)
@@ -25,6 +39,11 @@ namespace FuWarrior.Attributes
             else
             {
                 Die();
+            }
+
+            if(gameObject.tag == "Player")
+            {
+                onTakeDamage();
             }
         }
 
@@ -38,7 +57,6 @@ namespace FuWarrior.Attributes
             if (!isDead)
                 {
                     PlayDeathAnimation();
-                    //GetComponent<Rigidbody2D>().isKinematic = true;
                     Destroy(gameObject, vanishingTimeOfCorpse);
                 }
                 health = 0;
