@@ -36,7 +36,7 @@ namespace FuWarrior.Combat
 
         private void FixedUpdate() 
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
         }
 
         private void OnTriggerEnter2D(Collider2D other) 
