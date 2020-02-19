@@ -241,6 +241,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Helmet
       objectReference: {fileID: 0}
+    - target: {fileID: 390575238671813813, guid: d1e6e5dd3672b474fb376c41168a5b0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1988309642389221408, guid: d1e6e5dd3672b474fb376c41168a5b0f,
         type: 3}
       propertyPath: patrolPath
@@ -640,6 +645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Helmet (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 390575238671813813, guid: d1e6e5dd3672b474fb376c41168a5b0f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1988309642389221408, guid: d1e6e5dd3672b474fb376c41168a5b0f,
         type: 3}

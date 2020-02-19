@@ -34,10 +34,11 @@ namespace FuWarrior.Combat
             Destroy(gameObject, lifeTime);
         }
 
-        private void FixedUpdate() 
+        private void Update()
         {
-            transform.Translate(Vector3.right * speed * Time.fixedDeltaTime);
+            transform.Translate(Vector3.right * speed * Time.deltaTime);
         }
+
 
         private void OnTriggerEnter2D(Collider2D other) 
         {
@@ -57,7 +58,13 @@ namespace FuWarrior.Combat
                 }
                 else
                 {
-                    GameObject bloodIn = Instantiate(bloodInPrefab, gameObject.transform.position, gameObject.transform.rotation);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
+
+                    GameObject bloodIn = Instantiate(bloodInPrefab, hit.point, transform.rotation, other.transform);
+                    if (other.GetComponentInParent<Fighter>().GetIsFliped())
+                    {
+                        bloodIn.transform.localScale = new Vector2(-1f, 1f);
+                    }
                     Destroy(bloodIn, bloosEffectStickTime);
                 }
 
@@ -83,7 +90,13 @@ namespace FuWarrior.Combat
             {
                 if (!isStuck)
                 {
-                    GameObject bloodOut = Instantiate(bloodOutPrefab, gameObject.transform.position, gameObject.transform.rotation);
+                    RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right);
+
+                    GameObject bloodOut = Instantiate(bloodOutPrefab, hit.point, transform.rotation, other.transform);
+                    if (other.GetComponentInParent<Fighter>().GetIsFliped())
+                    {
+                        bloodOut.transform.localScale = new Vector2(-1f, 1f);
+                    }
                     Destroy(bloodOut, bloosEffectStickTime);
                 }
             }
