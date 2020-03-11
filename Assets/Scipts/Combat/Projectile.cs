@@ -7,15 +7,17 @@ namespace FuWarrior.Combat
     public class Projectile : MonoBehaviour 
     {
         [SerializeField] GameObject bloodInPrefab = null;
+        [SerializeField] Transform bloodInReferPoint = null;
         [SerializeField] GameObject bloodOutPrefab = null;
         [SerializeField] float bloosEffectStickTime = 1f;
         [SerializeField] float speed = 100f;
-        [SerializeField] float lifeTime = 5f;
+        [SerializeField] float maxLifeTime = 5f;
         [Range(0,100)]
         [SerializeField] float StackChanceInPercents = 30f;
 
         float finalDamage = 0f;
         bool isStuck = false;
+        bool isInCharacter = false;
         string myOwner = null;
         Vector2 bulet;
 
@@ -31,7 +33,7 @@ namespace FuWarrior.Combat
         {
             transform.LookAt(target);
             transform.Rotate(Vector3.up, -90f); 
-            Destroy(gameObject, lifeTime);
+            Destroy(gameObject, maxLifeTime);
         }
 
         private void Update()
@@ -58,7 +60,11 @@ namespace FuWarrior.Combat
                 }
                 else
                 {
-                    RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
+                    if (isInCharacter) { return; }
+                    LayerMask mask = LayerMask.GetMask("Enemy", "Player");
+                    RaycastHit2D hit = Physics2D.Raycast(bloodInReferPoint.position, transform.right, 1000f, mask);
+
+                    print(hit.point);
 
                     GameObject bloodIn = Instantiate(bloodInPrefab, hit.point, transform.rotation, other.transform);
                     if (other.GetComponentInParent<Fighter>().GetIsFliped())
@@ -66,6 +72,8 @@ namespace FuWarrior.Combat
                         bloodIn.transform.localScale = new Vector2(-1f, 1f);
                     }
                     Destroy(bloodIn, bloosEffectStickTime);
+
+                    
                 }
 
                 Health health = other.GetComponentInParent<Health>();
@@ -83,6 +91,11 @@ namespace FuWarrior.Combat
             }
         }
 
+        private void OnTriggerStay2D(Collider2D other) 
+        {
+            isInCharacter = true;
+        }
+
         private void OnTriggerExit2D(Collider2D other) 
         {
             if (!other.gameObject.GetComponentInParent<Fighter>()) {return;}
@@ -90,6 +103,7 @@ namespace FuWarrior.Combat
             {
                 if (!isStuck)
                 {
+                    
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right);
 
                     GameObject bloodOut = Instantiate(bloodOutPrefab, hit.point, transform.rotation, other.transform);
@@ -98,6 +112,7 @@ namespace FuWarrior.Combat
                         bloodOut.transform.localScale = new Vector2(-1f, 1f);
                     }
                     Destroy(bloodOut, bloosEffectStickTime);
+                    isInCharacter = false;
                 }
             }
         

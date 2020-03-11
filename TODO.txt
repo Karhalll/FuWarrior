@@ -1,8 +1,9 @@
 BUGY
 Hoří:
 
+ANIMACE SVĚŠENÍ RUKOU ZRUŠIT A UDĚLAT VE SCRIPTU
 
-- předělat hit kulky z kolize na raycast!!! 
+ruka hráče se renderuje před bulletshellama!
 
 -Dodělat shotgun (broky a jejich trajektorie--rozptyl)
 -přidat ke zbraním animaci přebíjení 

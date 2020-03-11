@@ -11,11 +11,11 @@ namespace FuWarrior.Control
     public class PlayerController : MonoBehaviour 
     {
         [System.Serializable]
-        struct CursorMapping
+        class CursorMapping
         {
-            public CursorType type;
-            public Texture2D texture;
-            public Vector2 hotspot;
+            public CursorType type = CursorType.Aim;
+            public Texture2D texture = null;
+            public Vector2 hotspot = Vector2.zero;
         }
 
         [SerializeField] CursorMapping[] cursorMappings = null;
