@@ -21,9 +21,6 @@ namespace FuWarrior.Combat
 
             Destroy(helmDynamics, helmetDestroyTime);
             Destroy(gameObject);
-        }
-
-
-        
+        }  
     }
 }
