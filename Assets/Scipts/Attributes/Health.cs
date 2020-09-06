@@ -21,10 +21,6 @@ namespace FuWarrior.Attributes
             health = maxHealth;
         }
 
-        private void Start() 
-        {
-        }
-
         public float GetHealthInPercent()
         {
             return (100 * health) / maxHealth;
@@ -58,7 +54,6 @@ namespace FuWarrior.Attributes
                 {
                     PlayDeathAnimation();
                     Destroy(gameObject, vanishingTimeOfCorpse);
-                    //gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
                 }
                 health = 0;
                 isDead = true;
