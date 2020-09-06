@@ -64,8 +64,6 @@ namespace FuWarrior.Combat
                     LayerMask mask = LayerMask.GetMask("Enemy", "Player");
                     RaycastHit2D hit = Physics2D.Raycast(bloodInReferPoint.position, transform.right, 1000f, mask);
 
-                    print(hit.point);
-
                     GameObject bloodIn = Instantiate(bloodInPrefab, hit.point, transform.rotation, other.transform);
                     if (other.GetComponentInParent<Fighter>().GetIsFliped())
                     {
