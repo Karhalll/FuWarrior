@@ -565,7 +565,7 @@ PrefabInstance:
     - target: {fileID: 8108167114257411441, guid: d1e6e5dd3672b474fb376c41168a5b0f,
         type: 3}
       propertyPath: maxHealth
-      value: 100000
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1e6e5dd3672b474fb376c41168a5b0f, type: 3}
@@ -1613,11 +1613,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450537769994748881, guid: 6fdfb7c4238d4ad4aa3d1c7a7ef3dbf0,
-        type: 3}
-      propertyPath: maxHealth
-      value: 10000000
       objectReference: {fileID: 0}
     - target: {fileID: 7468610393920329879, guid: 6fdfb7c4238d4ad4aa3d1c7a7ef3dbf0,
         type: 3}

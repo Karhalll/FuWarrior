@@ -5,6 +5,8 @@ ANIMACE SVĚŠENÍ RUKOU ZRUŠIT A UDĚLAT VE SCRIPTU
 
 ruka hráče se renderuje před bulletshellama!
 
+-predelat hit scan kulek na raycast (high velocity s trigger collidrem delaj bordel) = check hit with raycast, length of ray dependent on velocity!
+
 -Dodělat shotgun (broky a jejich trajektorie--rozptyl)
 -přidat ke zbraním animaci přebíjení 
 -systém zásobníku
