@@ -56,7 +56,7 @@ namespace FW.Control
                 timeSinceLastSawPlayer = 0f;
 
                 mover.SetMoveSpeed(0f);
-                mover.MoveTowardsHorizontaly(player.transform.position);
+                mover.MoveTowardsHorizontally(player.transform.position);
             }
             else if (timeSinceLastSawPlayer < suspicionTime)
             {
@@ -64,7 +64,7 @@ namespace FW.Control
                 isPatroling = false;
 
                 mover.SetMoveSpeed(0f);
-                mover.MoveTowardsHorizontaly(player.transform.position);
+                mover.MoveTowardsHorizontally(player.transform.position);
             }
             else
             {
@@ -104,13 +104,13 @@ namespace FW.Control
             if (timeSinceStartDwelling > dwellingTime)
             {
                 mover.SetMoveSpeed(patrolSpeed);
-                mover.MoveTowardsHorizontaly(nextPosition);
+                mover.MoveTowardsHorizontally(nextPosition);
                 fighter.SetNewTarget(GetCurrentWaypoint());
             }
             else
             {
                 mover.SetMoveSpeed(0f);
-                mover.MoveTowardsHorizontaly(nextPosition);
+                mover.MoveTowardsHorizontally(nextPosition);
             }
         }
 

@@ -21,12 +21,17 @@ namespace FW.Attributes
             health = maxHealth;
         }
 
-        public float GetHealthInPercent()
+        public float GetPercent()
         {
             return (100 * health) / maxHealth;
         }
 
-        public void GetDamage(float damage)
+        public bool IsDead()
+        {
+            return isDead;
+        }
+
+        public void TakeDamage(float damage)
         {
             if (health - damage > 0)
             {
@@ -43,20 +48,16 @@ namespace FW.Attributes
             }
         }
 
-        public bool IsDead()
-        {
-            return isDead;
-        }
-
         private void Die()
         {
             if (!isDead)
-                {
-                    PlayDeathAnimation();
-                    Destroy(gameObject, vanishingTimeOfCorpse);
-                }
-                health = 0;
-                isDead = true;
+            {
+                PlayDeathAnimation();
+                Destroy(gameObject, vanishingTimeOfCorpse);
+            }
+
+            health = 0;
+            isDead = true;
         }
 
         private void PlayDeathAnimation()

@@ -23,7 +23,7 @@ namespace FW.Combat
         Vector3 targetPosition;
 
         bool isPlayer = false;
-        bool isFliped = false;
+        bool isFlipped = false;
         bool isHitting = false;
         string myOwner = null;
 
@@ -57,13 +57,13 @@ namespace FW.Combat
                 if (other.gameObject.GetComponent<WeakPoint>())
                 {
                     Debug.Log("Critical Hit Attempt");
-                    other.gameObject.GetComponentInParent<Health>().GetDamage(weaponConfig.GetWeaponCriticalDamage());
+                    other.gameObject.GetComponentInParent<Health>().TakeDamage(weaponConfig.GetWeaponCriticalDamage());
                     Debug.Log(weaponConfig.GetWeaponCriticalDamage());
                 }
                 else
                 {
                     Debug.Log("Hit Attempt");
-                    other.gameObject.GetComponentInParent<Health>().GetDamage(weaponConfig.GetWeaponDamage());
+                    other.gameObject.GetComponentInParent<Health>().TakeDamage(weaponConfig.GetWeaponDamage());
                     Debug.Log(weaponConfig.GetWeaponDamage());
                 }
             }
@@ -91,9 +91,9 @@ namespace FW.Combat
             AimWeapon(); 
         }
 
-        public bool GetIsFliped()
+        public bool GetIsFlipped()
         {
-            return isFliped;
+            return isFlipped;
         }
 
         public void EquipWeapon(WeaponConfig weapon)
@@ -117,7 +117,7 @@ namespace FW.Combat
             Vector3 direction = (targetPosition - arms.position).normalized;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            if (isFliped)
+            if (isFlipped)
             {
                 angle += 180f;
             }
@@ -183,12 +183,12 @@ namespace FW.Combat
             if (lookingRight)
             {
                 transform.localScale = new Vector2(1f, 1f);
-                isFliped = false;
+                isFlipped = false;
             }
             else
             {
                 transform.localScale = new Vector2(-1f, 1f);
-                isFliped = true;
+                isFlipped = true;
             }
         }
 

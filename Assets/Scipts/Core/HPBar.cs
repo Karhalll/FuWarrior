@@ -25,7 +25,7 @@ namespace FW.Core
 
         void UpdateHPBar()
         {
-            slider.value = playerHealth.GetHealthInPercent();
+            slider.value = playerHealth.GetPercent();
         }
     }
 }

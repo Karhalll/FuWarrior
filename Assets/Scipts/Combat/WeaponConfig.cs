@@ -7,7 +7,7 @@ namespace FW.Combat
     {
         [SerializeField] Weapon weaponPrefab = null;
         [SerializeField] AnimatorOverrideController animationOverride = null;
-        [SerializeField] Projectile projectilePrfab = null;
+        [SerializeField] Projectile projectilePrefab = null;
         [SerializeField] BulletShell bulletShellPrefab = null;
         [SerializeField] GameObject blastPrefab = null;
         [SerializeField] float blastTimeDuration = 2f;
@@ -52,7 +52,7 @@ namespace FW.Combat
 
         public void LaunchProjectile(Transform spawnPoint, Vector2 target, string tag)
         {
-            Projectile projectileInstance = Instantiate(projectilePrfab, spawnPoint.position, spawnPoint.rotation);
+            Projectile projectileInstance = Instantiate(projectilePrefab, spawnPoint.position, spawnPoint.rotation);
             projectileInstance.SetMyOwner(tag);
             projectileInstance.SetTarget(target);
             projectileInstance.IncreaseDamage(weaponDamage);
@@ -61,7 +61,7 @@ namespace FW.Combat
             {
                 GameObject blast = Instantiate(blastPrefab, spawnPoint.position, spawnPoint.rotation);
 
-                if(spawnPoint.GetComponentInParent<Fighter>().GetIsFliped())
+                if(spawnPoint.GetComponentInParent<Fighter>().GetIsFlipped())
                 {
                     blast.transform.Rotate(0f, 0f, 180f);
                 }

@@ -35,7 +35,7 @@ namespace FW.Movement
             moveSpeed = speed;
         }
 
-        public void MoveTowardsHorizontaly(Vector3 nextPosition)
+        public void MoveTowardsHorizontally(Vector3 nextPosition)
         {
             Vector3 charPosition = transform.position;
 

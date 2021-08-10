@@ -9,7 +9,7 @@ namespace FW.Combat
         [SerializeField] GameObject bloodInPrefab = null;
         [SerializeField] Transform bloodInReferPoint = null;
         [SerializeField] GameObject bloodOutPrefab = null;
-        [SerializeField] float bloosEffectStickTime = 1f;
+        [SerializeField] float bloodEffectStickTime = 1f;
         [SerializeField] float speed = 100f;
         [SerializeField] float maxLifeTime = 5f;
         [Range(0,100)]
@@ -19,7 +19,7 @@ namespace FW.Combat
         bool isStuck = false;
         bool isInCharacter = false;
         string myOwner = null;
-        Vector2 bulet;
+        Vector2 bullet;
 
         Vector2 target;
         Rigidbody2D myRigidBody = null;
@@ -65,11 +65,11 @@ namespace FW.Combat
                     RaycastHit2D hit = Physics2D.Raycast(bloodInReferPoint.position, transform.right, 1000f, mask);
 
                     GameObject bloodIn = Instantiate(bloodInPrefab, hit.point, transform.rotation, other.transform);
-                    if (other.GetComponentInParent<Fighter>().GetIsFliped())
+                    if (other.GetComponentInParent<Fighter>().GetIsFlipped())
                     {
                         bloodIn.transform.localScale = new Vector2(-1f, 1f);
                     }
-                    Destroy(bloodIn, bloosEffectStickTime);
+                    Destroy(bloodIn, bloodEffectStickTime);
 
                     
                 }
@@ -77,7 +77,7 @@ namespace FW.Combat
                 Health health = other.GetComponentInParent<Health>();
                 if (health)
                 {
-                    health.GetDamage(finalDamage);
+                    health.TakeDamage(finalDamage);
                 }
 
                 float rollADice = UnityEngine.Random.Range(0f, 100f);
@@ -105,11 +105,11 @@ namespace FW.Combat
                     RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right);
 
                     GameObject bloodOut = Instantiate(bloodOutPrefab, hit.point, transform.rotation, other.transform);
-                    if (other.GetComponentInParent<Fighter>().GetIsFliped())
+                    if (other.GetComponentInParent<Fighter>().GetIsFlipped())
                     {
                         bloodOut.transform.localScale = new Vector2(-1f, 1f);
                     }
-                    Destroy(bloodOut, bloosEffectStickTime);
+                    Destroy(bloodOut, bloodEffectStickTime);
                     isInCharacter = false;
                 }
             }
