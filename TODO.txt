@@ -1,6 +1,8 @@
 BUGY
 Hoří:
 
+- refactor codu
+
 ANIMACE SVĚŠENÍ RUKOU ZRUŠIT A UDĚLAT VE SCRIPTU
 
 ruka hráče se renderuje před bulletshellama!
@@ -16,6 +18,7 @@ Víme, ale zatím neřešíme:
 -Kolize kulek s okolím
 
 - posunutí nepřátel po kontaktu (ne zrušit, ale upravit)
+- health bar spravne menit s rozlysenim obrazovky
 
 TODO
 
