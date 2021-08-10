@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace FuWarrior.Attributes
+namespace FW.Attributes
 {
     public class Health : MonoBehaviour 
     {

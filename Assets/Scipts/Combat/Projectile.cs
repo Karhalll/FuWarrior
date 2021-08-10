@@ -1,8 +1,8 @@
 using UnityEngine;
 
-using FuWarrior.Attributes;
+using FW.Attributes;
 
-namespace FuWarrior.Combat
+namespace FW.Combat
 {
     public class Projectile : MonoBehaviour 
     {

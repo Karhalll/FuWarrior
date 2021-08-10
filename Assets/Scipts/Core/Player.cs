@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-using FuWarrior.Attributes;
-using FuWarrior.Combat;
+using FW.Attributes;
+using FW.Combat;
 
-namespace FuWarrior.Core
+namespace FW.Core
 {
     public class Player : MonoBehaviour
     {

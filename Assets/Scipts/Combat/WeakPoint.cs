@@ -1,8 +1,8 @@
 using UnityEngine;
 
-using FuWarrior.Control;
+using FW.Control;
 
-namespace FuWarrior.Combat
+namespace FW.Combat
 {
     public class WeakPoint : MonoBehaviour, IRaycastable
     {

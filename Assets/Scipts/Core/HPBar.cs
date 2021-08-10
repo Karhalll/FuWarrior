@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-using FuWarrior.Attributes;
+using FW.Attributes;
 
-namespace FuWarrior.Core
+namespace FW.Core
 {
     public class HPBar : MonoBehaviour
     {

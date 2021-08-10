@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace FuWarrior.Combat
+namespace FW.Combat
 {
     public class Pickup : MonoBehaviour 
     {

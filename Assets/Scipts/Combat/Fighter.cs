@@ -1,9 +1,9 @@
 using UnityEngine;
 
-using FuWarrior.Control;
-using FuWarrior.Attributes;
+using FW.Control;
+using FW.Attributes;
 
-namespace FuWarrior.Combat
+namespace FW.Combat
 {
     [RequireComponent(typeof(Health))]
     public class Fighter : MonoBehaviour 

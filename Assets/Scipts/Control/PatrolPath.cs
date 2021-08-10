@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FuWarrior.Control
+namespace FW.Control
 {
     public class PatrolPath : MonoBehaviour 
     {

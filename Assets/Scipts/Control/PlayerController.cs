@@ -2,11 +2,11 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-using FuWarrior.Combat;
-using FuWarrior.Attributes;
-using FuWarrior.Movement;
+using FW.Combat;
+using FW.Attributes;
+using FW.Movement;
 
-namespace FuWarrior.Control
+namespace FW.Control
 {
     public class PlayerController : MonoBehaviour 
     {

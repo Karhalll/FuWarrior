@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FuWarrior.Combat
+namespace FW.Combat
 {
     [CreateAssetMenu(fileName = "Weapon", menuName = "FuWarrior/Weapon", order = 0)]
     public class WeaponConfig : ScriptableObject 

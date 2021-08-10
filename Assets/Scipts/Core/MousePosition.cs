@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FuWarrior.Core
+namespace FW.Core
 {
     public class MousePosition : MonoBehaviour
     {

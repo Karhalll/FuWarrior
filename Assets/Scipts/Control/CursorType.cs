@@ -1,4 +1,4 @@
-namespace FuWarrior.Control
+namespace FW.Control
 {
     public enum CursorType
     {

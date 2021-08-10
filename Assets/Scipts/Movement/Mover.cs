@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FuWarrior.Movement
+namespace FW.Movement
 {
     public class Mover : MonoBehaviour 
     {
