@@ -61,7 +61,7 @@ namespace FuWarrior.Combat
             {
                 GameObject blast = Instantiate(blastPrefab, spawnPoint.position, spawnPoint.rotation);
 
-                if(spawnPoint.GetComponentInParent<Fighter>().GetIsFliped())
+                if(spawnPoint.GetComponentInParent<Fighter>().GetIsFlipped())
                 {
                     blast.transform.Rotate(0f, 0f, 180f);
                 }
