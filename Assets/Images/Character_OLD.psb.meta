@@ -47,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: PlayerLegLeft
@@ -405,7 +407,8 @@ ScriptedImporter:
     - {x: 0, y: 24}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 64, y: 319}
+    uvTransform: {x: 512, y: 361}
+    spritePosition: {x: 448, y: 42}
   - name: PlayerFootRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -839,7 +842,8 @@ ScriptedImporter:
     - {x: 0, y: 23}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -335, y: 761}
+    uvTransform: {x: 184, y: 761}
+    spritePosition: {x: 519, y: 0}
   - name: Player FootLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1293,7 +1297,8 @@ ScriptedImporter:
     - {x: 0, y: 23}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -407, y: 758}
+    uvTransform: {x: 4, y: 761}
+    spritePosition: {x: 411, y: 3}
   - name: PlayerArmLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -1848,7 +1853,8 @@ ScriptedImporter:
     - {x: 46, y: 9}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -47, y: 282}
+    uvTransform: {x: 4, y: 851}
+    spritePosition: {x: 51, y: 569}
   - name: PlayerHandLeft
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2163,7 +2169,8 @@ ScriptedImporter:
     - {x: 0, y: 24}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 360, y: -65}
+    uvTransform: {x: 360, y: 460}
+    spritePosition: {x: 0, y: 525}
   - name: PlayerHead
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2511,7 +2518,8 @@ ScriptedImporter:
     - {x: 0, y: 27}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -254, y: -614}
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 258, y: 618}
   - name: PlayerBody
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2848,7 +2856,8 @@ ScriptedImporter:
     - {x: 0, y: 26}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -326, y: 109}
+    uvTransform: {x: 4, y: 460}
+    spritePosition: {x: 330, y: 351}
   - name: PlayerLegRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3414,7 +3423,8 @@ ScriptedImporter:
     - {x: 47, y: 40}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -40, y: -36}
+    uvTransform: {x: 512, y: 4}
+    spritePosition: {x: 552, y: 40}
   - name: PlayerArmRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3969,7 +3979,8 @@ ScriptedImporter:
     - {x: 46, y: 9}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -598, y: 301}
+    uvTransform: {x: 4, y: 871}
+    spritePosition: {x: 602, y: 570}
   - name: PlayerHandRight
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3990,7 +4001,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -534, y: 42}
+    uvTransform: {x: 360, y: 569}
+    spritePosition: {x: 894, y: 527}
   characterData:
     bones:
     - name: Spine

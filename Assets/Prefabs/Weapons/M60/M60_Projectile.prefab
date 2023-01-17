@@ -300,7 +300,7 @@ MonoBehaviour:
   bloodInReferPoint: {fileID: 1638525889084139347}
   bloodOutPrefab: {fileID: 8033813548605566633, guid: f1065e9e794f22f4c9f52f794135d2e1,
     type: 3}
-  bloosEffectStickTime: 0.1
+  bloodEffectStickTime: 0.1
   speed: 100
   maxLifeTime: 5
   StackChanceInPercents: 50.4
